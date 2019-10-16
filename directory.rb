@@ -1,21 +1,50 @@
-student_count = 11
-students = [
-  "Dr. Hannibal Lecter",
-  "Dart Vader",
-  "Nurse Ratched",
-  "Michael Corleone",
-  "Alex DeLarge",
-  "The Wicked Witch of the West",
-  "Terminator",
-  "Freddy Krueger",
-  "The Joker",
-  "Joffrey Baratheon",
-  "Norman Bates"
 
-]
-puts "The students of Villains Academy"
-puts "-----------------"
-students.each do |student|
-  puts student
+#we're storing the cohort month as a symbol because we don't
+#expect to treat is as a string
+# students = [
+#   ["Dr. Hannibal Lecter", :november],
+#   ["Dart Vader",:november],
+#   ["Nurse Ratched",:november],
+#   ["Michael Corleone",:november],
+#   ["Alex DeLarge",:november],
+#   ["The Wicked Witch of the West",:november],
+#   ["Terminator",:november],
+#   ["Freddy Krueger",:november],
+#   ["The Joker",:november],
+#   ["Joffrey Baratheon",:november],
+#   ["Norman Bates",:november]
+
+
+#we now turn the array into a Hash
+
+students = [
+  {name: "Dr. Hannibal Lecter", cohort: :november},
+  {name: "Dart Vader", cohort: :november},
+  {name: "Nurse Ratched", cohort: :november},
+  {name: "Michael Corleone", cohort: :november},
+  {name: "Alex DeLarge", cohort: :november},
+  {name: "The Wicked Witch of the West", cohort: :november},
+  {name: "Terminator", cohort: :november},
+  {name: "Freddy Krueger", cohort: :november},
+  {name: "The Joker", cohort: :november},
+  {name: "Joffrey Baratheon", cohort: :november},
+  {name: "Norman Bates", cohort: :november}
+  ]
+
+def print_header
+  puts "The students of Villains Academy"
+  puts "-----------------"
 end
-puts "Overall, we have #{student_count} great students"
+def print(students)
+  students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+  end
+end
+
+def print_footer(names)
+  student_count = 11
+  puts  "Overall, we have #{student_count} great students"
+end
+print_header
+print(students)
+print_footer(students)
